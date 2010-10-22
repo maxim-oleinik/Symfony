@@ -1013,7 +1013,7 @@ abstract class sfBrowserBase
    *
    * @return void
    */
-  protected function newSession()
+  public function newSession()
   {
     $this->defaultServerArray['session_id'] = $_SERVER['session_id'] = md5(uniqid(rand(), true));
   }
