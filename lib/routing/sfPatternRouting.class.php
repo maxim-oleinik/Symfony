@@ -513,6 +513,11 @@ class sfPatternRouting extends sfRouting
     // remove multiple /
     $url = preg_replace('#/+#', '/', $url);
 
+
+    if (($pos = strpos($url, '#')) !== false || ($pos = strpos($url, '%23')) !== false) {
+        $url = substr($url, 0, $pos);
+    }
+
     return $url;
   }
 
