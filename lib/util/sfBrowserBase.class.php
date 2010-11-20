@@ -891,7 +891,7 @@ abstract class sfBrowserBase
 
       if (null !== $value)
       {
-        $this->parseArgumentAsArray($elementName, $value, $defaults);
+        $this->parseArgumentAsArray($elementName, htmlspecialchars_decode($value), $defaults);
       }
     }
 
