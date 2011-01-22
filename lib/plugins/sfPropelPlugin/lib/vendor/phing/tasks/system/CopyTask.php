@@ -33,7 +33,7 @@ include_once 'phing/mappers/FlattenMapper.php';
  * exist. It is possible to explictly overwrite existing files.
  *
  * @author   Andreas Aderhold, andi@binarycloud.com
- * @version  $Revision: 1.16 $ $Date: 2007-09-05 22:42:02 +0400 (Срд, 05 Сен 2007) $
+ * @version  $Revision: 1.16 $ $Date: 2007-09-05 22:42:02 +0400 (Ср., 05 сент. 2007) $
  * @package  phing.tasks.system
  */
 class CopyTask extends Task {
