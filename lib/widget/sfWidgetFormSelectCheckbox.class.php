@@ -121,7 +121,8 @@ class sfWidgetFormSelectCheckbox extends sfWidgetFormChoiceBase
     $rows = array();
     foreach ($inputs as $input)
     {
-      $rows[] = $this->renderContentTag('li', $input['input'].$this->getOption('label_separator').$input['label']);
+      $liAttr = strpos($input['input'], 'checked="checked"') !== false ? array('class' => 'checked') : array();
+      $rows[] = $this->renderContentTag('li', $input['input'].$this->getOption('label_separator').$input['label'], $liAttr);
     }
 
     return !$rows ? '' : $this->renderContentTag('ul', implode($this->getOption('separator'), $rows), array('class' => $this->getOption('class')));
