@@ -185,7 +185,7 @@ class sfDoctrinePager extends sfPager implements Serializable
    */
   public function getResults($hydrationMode = null)
   {
-    return $this->getQuery()->execute(array(), $hydrationMode)->getData();
+    return $this->getQuery()->execute(array(), $hydrationMode);
   }
 
   /**
