@@ -45,6 +45,7 @@ class sfObjectRouteCollection extends sfRouteCollection
       'model_methods'        => array(),
       'requirements'         => array(),
       'with_wildcard_routes' => false,
+      'with_wildcard_object' => true,
       'default_params'   => array(),
     ), $this->options);
     
@@ -95,12 +96,14 @@ class sfObjectRouteCollection extends sfRouteCollection
     if ($this->options['with_wildcard_routes'])
     {
       // wildcard object actions
+      if ($this->options['with_wildcard_object']) {
       $this->routes[$this->getRoute('object')] = new $this->routeClass(
         sprintf('%s/:%s/:action.:sf_format', $this->options['prefix_path'], $this->options['column']),
         array_merge(array('module' => $this->options['module'], 'sf_format' => 'html'), $this->options['default_params']),
         array_merge($this->options['requirements'], array('sf_method' => array('get', 'head'))),
         array('model' => $this->options['model'], 'type' => 'object', 'method' => $this->options['model_methods']['object'])
       );
+      }
 
       // wildcard collection actions
       $this->routes[$this->getRoute('collection')] = new $this->routeClass(
