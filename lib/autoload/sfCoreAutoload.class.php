@@ -230,6 +230,7 @@ class sfCoreAutoload
     'sfsimpleyamlconfighandler' => 'config/sfSimpleYamlConfigHandler.class.php',
     'sfviewconfighandler' => 'config/sfViewConfigHandler.class.php',
     'sfyamlconfighandler' => 'config/sfYamlConfigHandler.class.php',
+    'sfurlbuilder' => 'util/sfUrlBuilder.class.php',
     'sfcontroller' => 'controller/sfController.class.php',
     'sffrontwebcontroller' => 'controller/sfFrontWebController.class.php',
     'sfwebcontroller' => 'controller/sfWebController.class.php',

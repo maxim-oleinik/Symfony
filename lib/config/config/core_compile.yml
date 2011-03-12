@@ -22,6 +22,7 @@
 - %SF_SYMFONY_LIB_DIR%/view/sfViewParameterHolder.class.php
 
 # these classes are optionals but very likely to be used (in web context)
+- %SF_SYMFONY_LIB_DIR%/util/sfUrlBuilder.class.php
 - %SF_SYMFONY_LIB_DIR%/controller/sfWebController.class.php
 - %SF_SYMFONY_LIB_DIR%/controller/sfFrontWebController.class.php
 - %SF_SYMFONY_LIB_DIR%/request/sfWebRequest.class.php
