@@ -39,6 +39,7 @@ abstract class sfWidgetForm extends sfWidget
    */
   public function __construct($options = array(), $attributes = array())
   {
+    $this->addOption('label_has_for', true);
     $this->addOption('id_format', '%s');
     $this->addOption('is_hidden', false);
     $this->addOption('needs_multipart', false);
