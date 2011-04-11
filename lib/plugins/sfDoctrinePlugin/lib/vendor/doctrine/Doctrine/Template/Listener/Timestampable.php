@@ -126,12 +126,19 @@ class Doctrine_Template_Listener_Timestampable extends Doctrine_Record_Listener
         if ($options['expression'] !== false && is_string($options['expression'])) {
             return new Doctrine_Expression($options['expression'], $conn);
         } else {
-            if ($options['type'] == 'date') {
-                return date($options['format'], time());
-            } else if ($options['type'] == 'timestamp') {
-                return date($options['format'], time());
+            $now = new DateTime('now');
+
+            // correct timezone
+            if (defined('DEFAULT_TIMEZONE')) {
+                if (date_default_timezone_get() != DEFAULT_TIMEZONE) {
+                    $now->setTimezone(new DateTimeZone(DEFAULT_TIMEZONE));
+                }
+            }
+
+            if ('date' == $options['type'] || 'timestamp' == $options['type']) {
+                return $now->format($options['format']);
             } else {
-                return time();
+                return $now->format('U');
             }
         }
     }
