@@ -130,7 +130,8 @@ EOF;
       'USE_DATABASE'      => sfConfig::has('sf_orm') ? 'true' : 'false',
     ));
 
-    $this->getFilesystem()->copy($skeletonDir.'/web/index.php', sfConfig::get('sf_web_dir').'/'.$indexName.'.php');
+    $finder = sfFinder::type('any')->discard('.sf');
+    $this->getFilesystem()->mirror($skeletonDir.'/web', sfConfig::get('sf_web_dir'), $finder);
     $this->getFilesystem()->copy($skeletonDir.'/web/index.php', sfConfig::get('sf_web_dir').'/'.$app.'_dev.php');
 
     $this->getFilesystem()->replaceTokens(sfConfig::get('sf_web_dir').'/'.$indexName.'.php', '##', '##', array(
