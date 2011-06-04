@@ -170,7 +170,7 @@ abstract class sfWidgetFormSchemaFormatter
       return '';
     }
 
-    if (!isset($attributes['for']))
+    if ($this->widgetSchema[$name]->getOption('label_has_for') && !isset($attributes['for']))
     {
       $attributes['for'] = $this->widgetSchema->generateId($this->widgetSchema->generateName($name));
     }

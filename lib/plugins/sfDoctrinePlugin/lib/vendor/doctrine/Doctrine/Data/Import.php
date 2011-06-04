@@ -217,15 +217,7 @@ class Doctrine_Data_Import extends Doctrine_Data
         $obj = $this->_importedObjects[$rowKey];
 
         foreach ((array) $row as $key => $value) {
-            if (method_exists($obj, 'set' . Doctrine_Inflector::classify($key))) {
-                $func = 'set' . Doctrine_Inflector::classify($key);
-                $obj->$func($value);
-            } else if ($obj->getTable()->hasField($key)) {
-                if ($obj->getTable()->getTypeOf($key) == 'object') {
-                    $value = unserialize($value);
-                }
-                $obj->set($key, $value);
-            } else if ($obj->getTable()->hasRelation($key)) {
+            if ($obj->getTable()->hasRelation($key)) {
                 if (is_array($value)) {
                     if (isset($value[0]) && ! is_array($value[0])) {
                         foreach ($value as $link) {
@@ -243,6 +235,14 @@ class Doctrine_Data_Import extends Doctrine_Data
                 } else {
                     $obj->set($key, $this->_getImportedObject($value, $obj, $key, $rowKey));
                 }
+            } else if (method_exists($obj, 'set' . Doctrine_Inflector::classify($key))) {
+                $func = 'set' . Doctrine_Inflector::classify($key);
+                $obj->$func($value);
+            } else if ($obj->getTable()->hasField($key)) {
+                if ($obj->getTable()->getTypeOf($key) == 'object') {
+                    $value = unserialize($value);
+                }
+                $obj->set($key, $value);
             } else {
                 try {
                     $obj->$key = $value;

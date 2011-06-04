@@ -41,7 +41,7 @@ class sfFrontWebController extends sfWebController
 
       if (empty($moduleName) || empty($actionName))
       {
-        throw new sfError404Exception(sprintf('Empty module and/or action after parsing the URL "%s" (%s/%s).', $request->getPathInfo(), $moduleName, $actionName));
+        throw new sfError404Exception(sprintf('[%s] Empty module and/or action after parsing the URL "%s" (%s/%s).', $request->getHost(), $request->getPathInfo(), $moduleName, $actionName));
       }
 
       // make the first request

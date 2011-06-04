@@ -11,7 +11,7 @@
 /**
  * The current symfony version.
  */
-define('SYMFONY_VERSION', '1.4.9-DEV');
+define('SYMFONY_VERSION', '1.4.12-DEV');
 
 /**
  * sfCoreAutoload class.
@@ -22,7 +22,8 @@ define('SYMFONY_VERSION', '1.4.9-DEV');
  * @package    symfony
  * @subpackage autoload
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfCoreAutoload.class.php 30983 2010-09-24 02:42:48Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfCoreAutoload.class.php 32415 2011-03-30 16:09:00Z Kris.Wallsmith
+ $
  */
 class sfCoreAutoload
 {
@@ -230,6 +231,7 @@ class sfCoreAutoload
     'sfsimpleyamlconfighandler' => 'config/sfSimpleYamlConfigHandler.class.php',
     'sfviewconfighandler' => 'config/sfViewConfigHandler.class.php',
     'sfyamlconfighandler' => 'config/sfYamlConfigHandler.class.php',
+    'sfurlbuilder' => 'util/sfUrlBuilder.class.php',
     'sfcontroller' => 'controller/sfController.class.php',
     'sffrontwebcontroller' => 'controller/sfFrontWebController.class.php',
     'sfwebcontroller' => 'controller/sfWebController.class.php',

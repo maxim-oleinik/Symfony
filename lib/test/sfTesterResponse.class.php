@@ -369,6 +369,20 @@ class sfTesterResponse extends sfTester
     return $this->getObjectToReturn();
   }
 
+  public function noCookie($name)
+  {
+    foreach ($this->response->getCookies() as $cookie)
+    {
+      if ($name == $cookie['name'])
+      {
+        $this->tester->fail(sprintf('Expected cookie "%s" is NOT set', $name));
+      }
+    }
+
+    return $this->getObjectToReturn();
+  }
+
+
   /**
    * Tests the response content against a regex.
    *
